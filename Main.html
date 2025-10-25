@@ -7,6 +7,18 @@
     <meta name="description" content="一个用来练习网页编写的程序">
     <meta name="keywords" content="无">
     <style>
+         body {
+            display: flex;
+            justify-content: center;    /* 水平居中 */
+            align-items: center;        /* 垂直居中 */
+            min-height: 100vh;          /* 占满视口高度 */
+            margin: 0;                  /* 清除默认边距 */
+            background-image: url("login_container_bg_01tju.jpg");      /* 引入背景图片，路径为图片在项目中的相对路径 */
+            background-size: cover;                 /* 让图片覆盖整个页面，保持比例（可能裁剪边缘） */
+            background-repeat: no-repeat;           /* 图片不重复平铺 */
+            background-position: center center;     /* 图片居中显示 */
+        }
+
         .p1{
             color:aquamarine;
             font-size: 25px;
@@ -16,33 +28,29 @@
         }
 
         .login{
-            margin:10px 10px 10px 10px;
-            border: 1px solid gray;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        }
+
+        .toggle-btn{
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <script>
-        function quit()
-        {
-            if(confirm("确定要退出吗？"))
-            {
-            console.log("Window closed");
-            window.close();
-            }
-            else
-            {
-                
-            }
-        }
-    </script>
+    <script src="/Functions.js"></script>
     <div class="login">
         <form class="interlogin" action="Info">
             <p class="p1">账号：</p>
-            <input type="number" id="account" placeholder="请输入账号"><br>
-            <p>密码：</p>
-            <input type="password" id="password" placeholder="请输入密码："><br>
-            <br>
+            <input type="text" id="account" placeholder="请输入账号"><br>
+            <div class="passwordDIV">
+                <p class="p1">密码：</p>
+                <input type="password" id="password" placeholder="请输入密码：">
+                <span class="toggle-btn" onclick="toggle()">&nbsp;👁️</span><br>
+            </div>
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button type="button" id="Confirm">登录</button>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <button type="button" id="Quit" onclick="quit()">退出</button>
