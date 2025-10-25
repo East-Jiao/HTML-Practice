@@ -1,26 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello</title>
     <meta name="description" content="一个用来练习网页编写的程序">
     <meta name="keywords" content="无">
+    <link rel="icon" href="/Icon.ico">
+    <link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin>
     <style>
          body {
             display: flex;
+
             justify-content: center;    /* 水平居中 */
             align-items: center;        /* 垂直居中 */
             min-height: 100vh;          /* 占满视口高度 */
             margin: 0;                  /* 清除默认边距 */
+
             background-image: url("login_container_bg_01tju.jpg");      /* 引入背景图片，路径为图片在项目中的相对路径 */
             background-size: cover;                 /* 让图片覆盖整个页面，保持比例（可能裁剪边缘） */
             background-repeat: no-repeat;           /* 图片不重复平铺 */
             background-position: center center;     /* 图片居中显示 */
+            background-color: rgba(0,0,0,0.5);
         }
 
         .p1{
-            color:aquamarine;
+            color:black;
             font-size: 25px;
             font-weight: 500;
             font-style: normal;
@@ -28,14 +33,28 @@
         }
 
         .login{
-        border: 1px solid #ddd;
-        padding: 20px;
-        border-radius: 8px;
-        background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
         }
 
         .toggle-btn{
             cursor: pointer;
+        }
+
+        #atips{
+            color: red;
+            font-size: 12px;
+            margin: 4px 0;
+            display: none;          /* 默认隐藏 */
+        }
+
+        #ptips{
+            color: red;
+            font-size: 12px;
+            margin: 4px 0;
+            display: none;          /* 默认隐藏 */
         }
     </style>
 </head>
@@ -45,13 +64,28 @@
         <form class="interlogin" action="Info">
             <p class="p1">账号：</p>
             <input type="text" id="account" placeholder="请输入账号"><br>
+            <div id = atips>请输入账号</div>
             <div class="passwordDIV">
                 <p class="p1">密码：</p>
                 <input type="password" id="password" placeholder="请输入密码：">
-                <span class="toggle-btn" onclick="toggle()">&nbsp;👁️</span><br>
+                <span class="toggle-btn" onclick="toggle()">&nbsp;👁️</span>
+                <div id = "ptips">请输入密码</div><br>
             </div>
+            <script>
+                //监听
+                const a = document.getElementById("account");
+                const p = document.getElementById("password");
+                const pStatus = document.getElementById("ptips");
+                const aStatus = document.getElementById("atips");
+                a.addEventListener("input",function(){
+                    aStatus.style.display = "none";
+                });
+                p.addEventListener("input",function(){
+                    pStatus.style.display = "none";
+                });
+            </script>
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="button" id="Confirm">登录</button>
+            <button type="button" id="Confirm" onclick="isempty()">登录</button>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <button type="button" id="Quit" onclick="quit()">退出</button>
         </form>
