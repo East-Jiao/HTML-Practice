@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello</title>
+    <meta name="description" content="一个用来练习网页编写的程序">
+    <meta name="keywords" content="无">
+    <style>
+        .p1{
+            color:aquamarine;
+            font-size: 25px;
+            font-weight: 500;
+            font-style: normal;
+            /* text-decoration: underline dashed; */
+        }
+
+        .login{
+            margin:10px 10px 10px 10px;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function quit()
+        {
+            if(confirm("确定要退出吗？"))
+            {
+            console.log("Window closed");
+            window.close();
+            }
+            else
+            {
+                
+            }
+        }
+    </script>
+    <div class="login">
+        <form class="interlogin" action="Info">
+            <p class="p1">账号：</p>
+            <input type="number" id="account" placeholder="请输入账号"><br>
+            <p>密码：</p>
+            <input type="password" id="password" placeholder="请输入密码："><br>
+            <br>
+            <button type="button" id="Confirm">登录</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" id="Quit" onclick="quit()">退出</button>
+        </form>
+    </div>
+</body>
+</html>
