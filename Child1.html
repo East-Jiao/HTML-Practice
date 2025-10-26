@@ -10,12 +10,56 @@
     <title>猜猜我在哪</title>
     <style>
         .header{
+            zoom:0.6;
+        }
+
+        .items{
             display: flex;
-            width: 500px;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .item{
+            margin-right: 20px;
+            list-style-type: none;
+        }
+        #baiduimg{
+            width: 400px;
+            height: auto;
+            cursor: pointer;
+        }
+        #ronghemenhuimg{
+            width: 600px;
+            height: auto;
+            cursor: pointer;
+        }
+        #biliimg{
+            width: 400px;
+            height: auto;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div id="header"></div>
+    <div id="header">
+        <ul class="items">
+            <li class="item">
+                <svg>
+                    <img src="/baidu.png" alt="请刷新试试" id="baiduimg" onclick="window.location.href='https://www.baidu.com'">
+                </svg>
+            </li>
+            <li class="item">
+                <svg>
+                    <img src="/bili.png" alt="请刷新试试" id="biliimg" onclick="window.location.href='https://www.bilibili.com'">
+                </svg>
+            </li>
+            <li class="item">
+                <svg>
+                    <img src="/logo-tj.png" alt="请刷新试试" id="ronghemenhuimg" onclick="window.location.href='https://sso.tju.edu.cn/cas/login?service=https%3A%2F%2Ff.tju.edu.cn%2Ftp_up%2F'">
+                </svg>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>
